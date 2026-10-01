@@ -1,0 +1,13 @@
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\bin\Debug\net10.0\BookshelfLogic.deps.json
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\bin\Debug\net10.0\BookshelfLogic.dll
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\bin\Debug\net10.0\BookshelfLogic.pdb
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\obj\Debug\net10.0\BookshelfLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\obj\Debug\net10.0\BookshelfLogic.AssemblyInfoInputs.cache
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\obj\Debug\net10.0\BookshelfLogic.AssemblyInfo.cs
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\obj\Debug\net10.0\BookshelfLogic.csproj.CoreCompileInputs.cache
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\obj\Debug\net10.0\BookshelfLogic.sourcelink.json
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\obj\Debug\net10.0\BookshelfLogic.dll
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\obj\Debug\net10.0\refint\BookshelfLogic.dll
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\obj\Debug\net10.0\BookshelfLogic.pdb
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\obj\Debug\net10.0\ref\BookshelfLogic.dll
+C:\Users\megva\source\repos\Bookshelf\BookshelfLogic\obj\Debug\net10.0\Bookshel.8527B0E1.Up2Date

@@ -1,4 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using BookshelfLogic.Models;
+using MySql.Data;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<DbContext>(options =>
+{
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection")));
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

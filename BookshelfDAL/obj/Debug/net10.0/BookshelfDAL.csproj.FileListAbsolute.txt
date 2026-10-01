@@ -1,0 +1,6 @@
+C:\Users\megva\source\repos\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.csproj.AssemblyReference.cache
+C:\Users\megva\source\repos\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\megva\source\repos\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.AssemblyInfoInputs.cache
+C:\Users\megva\source\repos\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.AssemblyInfo.cs
+C:\Users\megva\source\repos\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.csproj.CoreCompileInputs.cache
+C:\Users\megva\source\repos\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.sourcelink.json
