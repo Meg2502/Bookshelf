@@ -5,6 +5,12 @@ namespace Bookshelf.Controllers
 {
     public class AdminController : Controller
     {
+        public IActionResult Index()
+        {
+            return View();
+        }
+    
+
         [HttpGet]
         public IActionResult AddBook()
         {
@@ -22,9 +28,9 @@ namespace Bookshelf.Controllers
             if (!ModelState.IsValid)
                 return View(Book);
 
-            //persist book here
 
-            return RedirectToAction(nameof(AddBook)); // ToDO go to book list page 
+
+            return RedirectToPage(); // direct to viewbooks
         }
     }
 }
