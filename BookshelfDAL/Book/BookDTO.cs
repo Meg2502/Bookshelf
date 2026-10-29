@@ -1,4 +1,4 @@
-﻿using BookshelfLogic.Models;
+﻿using BookshelfBL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

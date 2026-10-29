@@ -1,5 +1,5 @@
 <Solution>
   <Project Path="Bookshelf/Bookshelf.csproj" />
   <Project Path="BookshelfDAL/BookshelfDAL.csproj" Id="d0b0c9ad-e9e8-404a-b1c3-76dcef501662" />
-  <Project Path="BookshelfLogic/BookshelfLogic.csproj" Id="cc06105b-44f2-4b6d-9a11-32bbd7259a85" />
+  <Project Path="BookshelfLogic/BookshelfBL.csproj" Id="cc06105b-44f2-4b6d-9a11-32bbd7259a85" />
 </Solution>

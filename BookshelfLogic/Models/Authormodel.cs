@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace BookshelfLogic.Models
+namespace BookshelfBL.Models
 {
     public class AuthorModel
     {
@@ -16,18 +16,18 @@ namespace BookshelfLogic.Models
         public string Biography {  get; private set; }
         //TODO image
 
-        public AuthorModel(string name, int authorid, DateTime birthdate, string gender, string biography)
-        {
-            Name = name;
-            Authorid = authorid;
-            Birthdate = birthdate;
-            Gender = gender;
-            Biography = biography;
-        }
         public AuthorModel(string name, int authorid)
         {
             Name = name;
             Authorid = authorid;
+        }
+
+        public AuthorModel(string name, int authorid, DateTime birthdate, string gender, string biography) : this(name, authorid)
+        {
+            
+            Birthdate = birthdate;
+            Gender = gender;
+            Biography = biography;
         }
     }
 }

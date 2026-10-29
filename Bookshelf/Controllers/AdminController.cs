@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using BookshelfLogic.Models;
+using BookshelfBL.Models;
 
 namespace Bookshelf.Controllers
 {
-    public class AdminController : Controller
+    public class BookController : Controller
     {
         public IActionResult Index()
         {
@@ -18,7 +18,7 @@ namespace Bookshelf.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddBook(BookModel Book)
+        public IActionResult AddBook(BookModel Book)
         {
             string title = Book.Title;
             string author = Book.Author?.Name;

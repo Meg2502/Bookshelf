@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BookshelfLogic.Models
+namespace BookshelfBL.Models
 {
     public class Bookservice
     {
@@ -11,9 +11,9 @@ namespace BookshelfLogic.Models
             
         }
 
-        public void UpdateBook()
+        public void UpdateBook(BookModel book)
         {
-
+            //todo not this iteration
         }
     }
 }

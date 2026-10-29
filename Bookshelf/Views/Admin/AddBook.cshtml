@@ -1,4 +1,4 @@
-﻿@model BookshelfLogic.Models.BookModel
+﻿@model BookshelfBL.Models.BookModel
 @{
     ViewData["Title"] = "AddBook";
 }
@@ -18,7 +18,7 @@
 
     <div>
         <label for="book-genre">Genre</label>
-        <select asp-for="Genre" asp-items="Html.GetEnumSelectList<BookshelfLogic.Models.BookModel.Genres>()"></select>
+        <select asp-for="Genre" asp-items="Html.GetEnumSelectList<BookshelfBL.Models.BookModel.Genres>()"></select>
         <span asp-validation-for="Genre"></span>
     </div>
 

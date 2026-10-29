@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Net;
 
 
-namespace BookshelfLogic.Models
+namespace BookshelfBL.Models
 {
     public class BookModel
     {
@@ -19,7 +19,24 @@ namespace BookshelfLogic.Models
         {
             Unknown,
             Fiction,
-            NonFiction
+            NonFiction,
+            Romance,
+            YoungAdult,
+            Fantasy,
+            Crime,
+            Detective,
+            Poetry,
+            Biography,
+            Horror,
+            Mystery,
+            ScienceFiction,
+            Action,
+            Adventure,
+            Thriller,
+            Historical,
+            Contemporary,
+            Children,
+            GraphicNovel,
         }
         public Genres Genre { get; private set; }
        
@@ -30,16 +47,15 @@ namespace BookshelfLogic.Models
         //TODO image
 
         public BookModel(string title, Genres genre, AuthorModel author,
-                        string description, DateTime releasedate,  int rating)
+                        string description, DateTime releasedate)
         {
             Title = title;
             Genre = genre;
             Author = author;
             Description = description;
             ReleaseDate = releasedate;
-            Rating = rating;
 
-            Rating = 0; //ToDO set rating default to 0
+            Rating = 0; 
         }
     }
 }
