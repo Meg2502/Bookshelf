@@ -413,16 +413,6 @@
         "runtime": {
           "lib/net9.0/ZstdSharp.dll": {}
         }
-      },
-      "BookshelfBL/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v10.0",
-        "compile": {
-          "bin/placeholder/BookshelfBL.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BookshelfBL.dll": {}
-        }
       }
     }
   },
@@ -1087,16 +1077,10 @@
         "zstdsharp.port.0.8.8.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
-    },
-    "BookshelfBL/1.0.0": {
-      "type": "project",
-      "path": "../BookshelfLogic/BookshelfBL.csproj",
-      "msbuildProject": "../BookshelfLogic/BookshelfBL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "BookshelfBL >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 10.0.12",
       "MySql.Data >= 26.7.0"
     ]
@@ -1133,11 +1117,7 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
-          "projectReferences": {
-            "C:\\Users\\megva\\source\\repos\\Bookshelf\\BookshelfLogic\\BookshelfBL.csproj": {
-              "projectPath": "C:\\Users\\megva\\source\\repos\\Bookshelf\\BookshelfLogic\\BookshelfBL.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -1150,7 +1130,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.400"
+      "SdkAnalysisLevel": "11.0.100"
     },
     "frameworks": {
       "net10.0": {
@@ -1182,7 +1162,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\11.0.100-rc.3.26522.148/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

@@ -1,37 +1,50 @@
-﻿@model BookshelfBL.Models.BookModel
+﻿@model Bookshelf.ViewModels.CreateBookViewModel
 @{
     ViewData["Title"] = "AddBook";
 }
 
 <form method="post">
     <div>
-        <label for="book-title">Book Title</label>
-        <input asp-for="Title">
+        <label> Title: </label>
+        <input asp-for="Title" />
         <span asp-validation-for="Title"></span>
     </div>
 
-    <div>
-        <label for="book-Author">Author</label>
-        <select asp-for="AuthorId" asp-items="ViewBag.Authors"></select>
-        <span asp-validation-for="AuthorId"></span>
-    </div>
+   <div>
+        <label>Author:</label>
+        <select asp-for="AuthorID"
+                class="form-control"
+                asp-items="@(new SelectList(Model.ExistingAuthors, "ID", "Name", "Birthdate"))">
+                <option value="">Select Author</option>
+                <span asp-validation-for="AuthorID"></span>
+        </select>
+        
+     </div>
 
     <div>
-        <label for="book-genre">Genre</label>
-        <select asp-for="Genre" asp-items="Html.GetEnumSelectList<BookshelfBL.Models.BookModel.Genres>()"></select>
+        <label> Genre:</label>
+        <select asp-for="Genre"
+                asp-items="Html.GetEnumSelectList<BookshelfBL.Genre>()">
+        </select>
         <span asp-validation-for="Genre"></span>
     </div>
-
+    
     <div>
-        <label for="book-description">Description</label>
+        <label >Description: </label>
         <input asp-for="Description" />
         <span asp-validation-for="Description"></span>
     </div>
 
     <div>
-        <label for="book-releasedate">Release date</label>
+        <label >Release date: </label>
         <input asp-for="ReleaseDate" />
         <span asp-validation-for="ReleaseDate"></span>
+    </div>
+
+    <div>
+        <label>Publisher: </label>
+        <input asp-for="Publisher" />
+        <span asp-validation-for="Publisher"></span>
     </div>
 
     <div>

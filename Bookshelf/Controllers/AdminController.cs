@@ -1,19 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BookshelfBL.Models;
+using Bookshelf.ViewModels;
+
 
 namespace Bookshelf.Controllers
 {
-    public class BookController : Controller
+    public class AdminController : Controller
     {
+        private readonly AuthorService _authorService = new AuthorService();
+
         public IActionResult Index()
         {
             return View();
         }
-    
 
         [HttpGet]
         public IActionResult AddBook()
         {
+            List<AuthorModel> authors = _authorService.GetAllAuthors();
+            //  public List<AuthorModel> ExistingAuthors { get; private set; } = new List<AuthorModel>();
+
             return View();
         }
 
@@ -21,7 +27,7 @@ namespace Bookshelf.Controllers
         public IActionResult AddBook(BookModel Book)
         {
             string title = Book.Title;
-            string author = Book.Author?.Name;
+            int authorid = Book.AuthorId;
             string genre = Book.Genre;
             string description = Book.Description;
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookshelfDAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c1dc6626ecc2ddf6735df568c615446959362425")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a20697210b7fec714fdc6c77e347750351b7cc81")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookshelfDAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookshelfDAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
