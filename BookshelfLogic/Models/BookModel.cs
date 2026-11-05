@@ -16,6 +16,7 @@ namespace BookshelfBL.Models
         public string Publisher { get; private set; }
         public decimal Rating { get; private set; }
 
+
         //TODO image
 
         public BookModel(string title, int authorid,  DateTime releasedate)

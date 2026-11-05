@@ -10,7 +10,7 @@ namespace Bookshelf.Controllers
     public class AdminController : Controller
     {
         // private readonly AuthorService _authorService = new AuthorService();
-       // private readonly BookService _bookService = new BookService();
+        private readonly BookService _bookService;
 
         public IActionResult Index()
         {
@@ -40,17 +40,26 @@ namespace Bookshelf.Controllers
             if (!ModelState.IsValid)
                 return View(Book);
 
+            if (Book.Genre == default)
+            {
+                Book.Genre = BookshelfBL.Genre.Unknown;
+            }
+            if (Book.Publisher == null)
+            {
+                Book.Publisher = "Unknown";
+            }
+
             BookModel book = new BookModel(Book.Title, Book.Genre, Book.AuthorID, 
                 Book.Description, Book.ReleaseDate, Book.Publisher);
 
             
-            //BookService.CreateBook(book);
+            _bookService.CreateBook(book);
             
             //Stap 1: Make a domain model (BookModel) from the CreateBookViewModel
             //Stap 2: Call BookService.CreateBook()
 
-            //ToDo: redirect to correct page
-            return RedirectToAction("AllBooks, Admin"); // direct to viewbooks
+            
+            return RedirectToAction(nameof(AllBooks)); 
         }
     }
 }

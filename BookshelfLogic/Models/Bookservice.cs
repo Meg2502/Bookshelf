@@ -26,15 +26,13 @@ namespace BookshelfBL.Models
                 throw new InvalidOperationException("Please select an author");
             }
 
-            if (book.Genre == null)
-            {
-                //ook.Genre = BookModel.Genres.Unknown;
-            }
 
             if (book.ReleaseDate == null)
             {
                 throw new ArgumentException("Please select a Releasedate");
             }
+
+
 
             //if (_bookRepository.BookExists(book.Title.Trim(), book.Author.AuthorId))
             //{

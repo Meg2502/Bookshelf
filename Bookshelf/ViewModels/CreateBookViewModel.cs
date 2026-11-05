@@ -15,13 +15,13 @@ namespace Bookshelf.ViewModels
         public string Title { get; set; }
 
         //ToDo: fix validation
-        //[Required(ErrorMessage = "Please select an author.")]
+        [Required(ErrorMessage = "Please select an author.")]
         public int AuthorID { get; set; }
 
         //public List<AuthorModel> ExistingAuthors { get; set; } = new List<AuthorModel>();
 
         //ToDo: fix validation
-        //[Required(ErrorMessage ="Please select a genre.")]
+        [Required(ErrorMessage ="Please select a genre.")]
         public Genre Genre { get; set; }
         public string Description { get;  set; }
 
