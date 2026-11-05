@@ -7,6 +7,10 @@ namespace BookshelfDAL.Book
 {
     public class BookRepo
     {
+        public void Add(BookDTO dto)
+        { 
+            
+        }
         
     }
 }

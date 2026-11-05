@@ -6,29 +6,29 @@ using BookshelfDAL.Book;
 
 namespace BookshelfBL.Models
 {
-    public class Bookservice
+    public class BookService
     {
         private readonly BookRepo _bookRepository;
-        public Bookservice(BookRepo bookRepository)
+        public BookService(BookRepo bookRepository)
         {
             _bookRepository = bookRepository;
         }
 
-        public string CreateBook(BookModel book)
+        public void CreateBook(BookModel book)
         {
             if (string.IsNullOrWhiteSpace(book.Title))
             {
                 throw new InvalidOperationException("Fill in book title");
             }
 
-            if (book.Author == null)
+            if (book.AuthorID == null)
             {
                 throw new InvalidOperationException("Please select an author");
             }
 
             if (book.Genre == null)
             {
-                book.Genre = BookModel.Genres.Unknown;
+                //ook.Genre = BookModel.Genres.Unknown;
             }
 
             if (book.ReleaseDate == null)
@@ -36,10 +36,10 @@ namespace BookshelfBL.Models
                 throw new ArgumentException("Please select a Releasedate");
             }
 
-            if (_bookRepository.BookExists(book.Title.Trim(), book.Author.AuthorId))
-            {
-                throw new InvalidOperationException("Book already exists");
-            }
+            //if (_bookRepository.BookExists(book.Title.Trim(), book.Author.AuthorId))
+            //{
+            //    throw new InvalidOperationException("Book already exists");
+            //}
         }
 
         public void UpdateBook(BookModel book)

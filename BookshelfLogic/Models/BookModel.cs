@@ -9,7 +9,7 @@ namespace BookshelfBL.Models
     public class BookModel
     {
         public string Title { get; private set; }
-        public AuthorModel Author { get; private set; }      
+        public int AuthorID  { get; private set; }      
         public Genre Genre { get; private set; }
         public string Description { get; private set; }
         public DateTime ReleaseDate { get; private set; }
@@ -18,18 +18,18 @@ namespace BookshelfBL.Models
 
         //TODO image
 
-        public BookModel(string title, AuthorModel author,  DateTime releasedate)
+        public BookModel(string title, int authorid,  DateTime releasedate)
         {
             Title = title;
-            Author = author;
+            AuthorID = authorid;
             ReleaseDate = releasedate;
 
             Genre = Genre.Unknown;
             Rating = 0; 
         }
 
-        public BookModel(string title, Genre genre, AuthorModel author,
-                           string description, DateTime releasedate, string publisher) : this(title, author, releasedate)
+        public BookModel(string title, Genre genre, int authorid,
+                           string description, DateTime releasedate, string publisher) : this(title, authorid, releasedate)
         {
             Genre = genre;
             Description = description;

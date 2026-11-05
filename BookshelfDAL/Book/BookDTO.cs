@@ -9,7 +9,8 @@ namespace BookshelfDAL.Book
     {
         public string Title { get; private set; }
         public string Genre { get; private set; }
-        public AuthorModel Author { get; private set; }
+        //ToDo: replace with author dto
+        //public AuthorModel Author { get; private set; }
         public string Description { get; private set; }
         public DateTime ReleaseDate { get; private set; }
         public string Publisher { get; private set; }

@@ -20,7 +20,9 @@ namespace BookshelfBL.Helpers.Mappers
             }
 
             //dan hier maak je een nieuw object ervan aan met de data uit de dto (dto.data)
-            AuthorModel author = new AuthorModel(dto.Name, dto.Id, dto.Birthdate, dto.Gender, dto.Biography);
+            AuthorModel author = null;
+            //ToDo map dto to domin model
+            //AuthorModel author = new AuthorModel(dto.Name, dto.Id, dto.Birthdate, dto.Gender, dto.Biography);
 
             //Je hebt een lijst met boeken dus die moeten ook nog overgezet worden
             //if (dto.Books != null)

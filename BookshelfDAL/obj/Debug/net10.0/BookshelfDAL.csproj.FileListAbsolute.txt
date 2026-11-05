@@ -12,3 +12,17 @@ C:\Users\megva\source\repos\Bookshelf\BookshelfDAL\obj\Debug\net10.0\refint\Book
 C:\Users\megva\source\repos\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.pdb
 C:\Users\megva\source\repos\Bookshelf\BookshelfDAL\obj\Debug\net10.0\ref\BookshelfDAL.dll
 C:\Users\megva\source\repos\Bookshelf\BookshelfDAL\obj\Debug\net10.0\Bookshel.2C2CF0E5.Up2Date
+C:\Bookshelf\BookshelfDAL\bin\Debug\net10.0\BookshelfDAL.deps.json
+C:\Bookshelf\BookshelfDAL\bin\Debug\net10.0\BookshelfDAL.dll
+C:\Bookshelf\BookshelfDAL\bin\Debug\net10.0\BookshelfDAL.pdb
+C:\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.csproj.AssemblyReference.cache
+C:\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.AssemblyInfoInputs.cache
+C:\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.AssemblyInfo.cs
+C:\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.csproj.CoreCompileInputs.cache
+C:\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.sourcelink.json
+C:\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.dll
+C:\Bookshelf\BookshelfDAL\obj\Debug\net10.0\refint\BookshelfDAL.dll
+C:\Bookshelf\BookshelfDAL\obj\Debug\net10.0\BookshelfDAL.pdb
+C:\Bookshelf\BookshelfDAL\obj\Debug\net10.0\ref\BookshelfDAL.dll
+C:\Bookshelf\BookshelfDAL\obj\Debug\net10.0\Bookshel.2C2CF0E5.Up2Date

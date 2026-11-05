@@ -12,23 +12,21 @@ namespace Bookshelf.ViewModels
     public class CreateBookViewModel
     {
         [Required(ErrorMessage = "Please fill in a title.")]
-        public string Title { get; private set; }
+        public string Title { get; set; }
 
-        [Required(ErrorMessage = "Please select an author.")]
-        public int AuthorID { get; private set; }
+        //ToDo: fix validation
+        //[Required(ErrorMessage = "Please select an author.")]
+        public int AuthorID { get; set; }
 
-        public List<AuthorModel> ExistingAuthors { get; private set; } = new List<AuthorModel>();
+        //public List<AuthorModel> ExistingAuthors { get; set; } = new List<AuthorModel>();
 
-        [Required(ErrorMessage ="Please select a genre.")]
-        public Genre Genre { get; private set; }
+        //ToDo: fix validation
+        //[Required(ErrorMessage ="Please select a genre.")]
+        public Genre Genre { get; set; }
+        public string Description { get;  set; }
 
-        [MinLength(10)]
-        public string Description { get; private set; }
-
-        public DateTime ReleaseDate { get; private set; }
-
-        [MinLength(3)]
-        public string Publisher { get; private set; }
+        public DateTime ReleaseDate { get; set; }
+        public string Publisher { get; set; }
 
         //TODO image
 

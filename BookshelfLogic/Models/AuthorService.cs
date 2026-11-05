@@ -8,8 +8,9 @@ namespace BookshelfBL.Models
 {
     public class AuthorService
     {
+        //readonly = repository word 1x ingesteld, zo gaat de service geen andere gebruiken
         private readonly AuthorRepo _authorRepository;
-        public AuthorService(AuthorRepo authorRepository)
+        public AuthorService(AuthorRepo authorRepository) //constructor
         {
             _authorRepository = authorRepository;
         }
