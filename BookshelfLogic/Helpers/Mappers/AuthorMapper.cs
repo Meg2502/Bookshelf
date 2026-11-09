@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using BookshelfDAL.Author;
 using BookshelfDAL.Book;
@@ -20,25 +21,27 @@ namespace BookshelfBL.Helpers.Mappers
             }
 
             //dan hier maak je een nieuw object ervan aan met de data uit de dto (dto.data)
-            AuthorModel author = null;
-            //ToDo map dto to domin model
-            //AuthorModel author = new AuthorModel(dto.Name, dto.Id, dto.Birthdate, dto.Gender, dto.Biography);
+            AuthorModel author = new AuthorModel(dto.Name, dto.Id, dto.Birthdate, dto.Gender, dto.Biography);
+
 
             //Je hebt een lijst met boeken dus die moeten ook nog overgezet worden
-            //if (dto.Books != null)
-            //{
-            //    foreach (var bookdto in dto.Books )
-            //    {
-            //        BookModel book = new BookModel(
-            //            bookdto.BookModel.Title,
-            //            bookdto.BookModel.Genre,
-            //            bookdto.BookModel.Description,
-            //            bookdto.BookModel.Releasedate,
-            //            bookdto.BookModel.Publisher
-            //            );
-            //        author.AddBookModel(book);
-            //    }
-            //}
+            if (dto.Books != null)
+            {
+                foreach (var bookdto in dto.Books)
+                {
+                    BookModel book = new BookModel(
+                        bookdto.Title,
+                        bookdto.AuthorId,
+                        bookdto.BookGenre
+                            .Select(genre => Enum.Parse<Genre>(genre, ignoreCase: true))
+                            .ToList(),
+                        bookdto.Description,
+                        bookdto.ReleaseDate,
+                        bookdto.Publisher
+                        );
+                    author.AddBook(book);
+                }
+            }
             return author;
         }
 
@@ -52,5 +55,7 @@ namespace BookshelfBL.Helpers.Mappers
 
             return dtos.Select(dto => MapToBusiness(dto)).ToList();
         }
+
+        
     }
 }

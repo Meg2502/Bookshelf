@@ -14,19 +14,16 @@ namespace Bookshelf.ViewModels
         [Required(ErrorMessage = "Please fill in a title.")]
         public string Title { get; set; }
 
-        //ToDo: fix validation
         [Required(ErrorMessage = "Please select an author.")]
         public int AuthorID { get; set; }
+        public List<AuthorModel> ExistingAuthors { get; set; } = new();
 
-        //public List<AuthorModel> ExistingAuthors { get; set; } = new List<AuthorModel>();
+        public List<Genre> SelectedGenres { get; set; } = new();
+        public List<Genre> Genres { get; set; }
 
-        //ToDo: fix validation
-        [Required(ErrorMessage ="Please select a genre.")]
-        public Genre Genre { get; set; }
-        //public List<Genre> Genre { get; set; }
         public string Description { get;  set; }
 
-        public DateTime ReleaseDate { get; set; }
+        public DateOnly ReleaseDate { get; set; }
         public string Publisher { get; set; }
 
         //TODO image

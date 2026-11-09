@@ -32,19 +32,25 @@ namespace BookshelfBL.Models
                 throw new ArgumentException("Please select a Releasedate");
             }
 
-            //if (_bookRepository.BookExists(book.Title.Trim(), book.Author.AuthorId))
-            //{
-            //    throw new InvalidOperationException("Book already exists");
-            //}
+            if (_bookRepository.BookExists(book.Title.Trim(), book.AuthorID))
+            {
+                throw new InvalidOperationException("Book already exists");
+            }
 
             BookDTO dto = new BookDTO()
             {
                 Title = book.Title,
-                AuthorId = 2,
+                AuthorId = book.AuthorID,
                 Description = book.Description,
                 ReleaseDate = book.ReleaseDate,
                 Publisher = book.Publisher,
                 Rating = 0
+
+                //todo convert list genres
+                //foreach (Genre in book.SelectedGenres )
+                //{
+                //BookGenre.Add();
+                //}
             };
 
             _bookRepository.Add(dto);

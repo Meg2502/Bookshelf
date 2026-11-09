@@ -10,10 +10,10 @@ namespace BookshelfDAL.Author
         public string Name { get;  set; }
         public int Id { get;  set; }
 
-        public DateTime Birthdate { get;  set; }
+        public DateOnly Birthdate { get;  set; }
         public string Gender { get; set; }
         public string Biography { get;  set; }
-        public List <BookDTO> Books { get; set; } = new List<BookDTO> ();
+        public List <BookDTO> Books { get; set; } = new List<BookDTO>();
 
     }
 }
