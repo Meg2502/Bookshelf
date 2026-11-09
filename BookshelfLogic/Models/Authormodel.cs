@@ -23,7 +23,7 @@ namespace BookshelfBL.Models
             Birthdate = birthdate;
         }
 
-        // idk wrm ie een 0 erin zet maar kijk daar eens naar
+     
         public AuthorModel(string name, int id, string gender, string biography, DateTime birthdate  ) : this(name, id, birthdate)
         {
             Gender = gender;

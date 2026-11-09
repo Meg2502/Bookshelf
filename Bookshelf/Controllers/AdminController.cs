@@ -10,7 +10,8 @@ namespace Bookshelf.Controllers
     public class AdminController : Controller
     {
         // private readonly AuthorService _authorService = new AuthorService();
-        private readonly BookService _bookService;
+        private readonly BookService _bookService = new BookService();
+        //BookService bookService = new BookService();
 
         public IActionResult Index()
         {
@@ -40,10 +41,10 @@ namespace Bookshelf.Controllers
             if (!ModelState.IsValid)
                 return View(Book);
 
-            if (Book.Genre == default)
-            {
-                Book.Genre = BookshelfBL.Genre.Unknown;
-            }
+            //if (Book.Genre == default)
+            //{
+            //    Book.Genre = BookshelfBL.Genre.Unknown;
+            //}
             if (Book.Publisher == null)
             {
                 Book.Publisher = "Unknown";

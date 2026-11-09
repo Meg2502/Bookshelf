@@ -9,12 +9,12 @@ namespace BookshelfBL.Models
     public class BookService
     {
         private readonly BookRepo _bookRepository;
-        public BookService(BookRepo bookRepository)
+        public BookService()
         {
-            _bookRepository = bookRepository;
+            _bookRepository = new BookRepo();
         }
 
-        public void CreateBook(BookModel book)
+        public BookDTO CreateBook(BookModel book)
         {
             if (string.IsNullOrWhiteSpace(book.Title))
             {
@@ -32,12 +32,24 @@ namespace BookshelfBL.Models
                 throw new ArgumentException("Please select a Releasedate");
             }
 
-
-
             //if (_bookRepository.BookExists(book.Title.Trim(), book.Author.AuthorId))
             //{
             //    throw new InvalidOperationException("Book already exists");
             //}
+
+            BookDTO dto = new BookDTO()
+            {
+                Title = book.Title,
+                AuthorId = 2,
+                Description = book.Description,
+                ReleaseDate = book.ReleaseDate,
+                Publisher = book.Publisher,
+                Rating = 0
+            };
+
+            _bookRepository.Add(dto);
+
+            return dto;
         }
 
         public void UpdateBook(BookModel book)

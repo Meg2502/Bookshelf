@@ -23,6 +23,7 @@ namespace Bookshelf.ViewModels
         //ToDo: fix validation
         [Required(ErrorMessage ="Please select a genre.")]
         public Genre Genre { get; set; }
+        //public List<Genre> Genre { get; set; }
         public string Description { get;  set; }
 
         public DateTime ReleaseDate { get; set; }
