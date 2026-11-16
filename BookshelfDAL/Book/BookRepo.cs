@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
 using BookshelfDAL;
+using BookshelfDAL.Interfaces;
 using Microsoft.Data.SqlClient;
 
 namespace BookshelfDAL.Book
 {
-    public class BookRepo
+    public class BookRepo : IBookRepo
     {
-        public BookRepo()
+        public BookRepo() 
         {
 
         }

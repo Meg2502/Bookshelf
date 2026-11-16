@@ -1,7 +1,13 @@
+using BookshelfBL.Models;
+using BookshelfDAL.Book;
+using BookshelfDAL.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IBookRepo, BookRepo>();
+builder.Services.AddScoped<BookService>();
 
 var app = builder.Build();
 

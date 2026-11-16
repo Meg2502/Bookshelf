@@ -3,23 +3,25 @@ using System.Collections.Generic;
 using System.Text;
 using BookshelfDAL;
 using BookshelfDAL.Book;
-using Mysqlx.Crud;
+using BookshelfDAL.Interfaces;
+
 
 namespace BookshelfBL.Models
 {
     public class BookService
     {
-        private readonly BookRepo _bookRepository;
-        public BookService()
+        private readonly IBookRepo _bookRepository;
+      
+        public BookService(IBookRepo bookRepository)
         {
-            _bookRepository = new BookRepo();
+            _bookRepository = bookRepository;
         }
 
         public BookDTO CreateBook(BookModel book)
         {
             if (string.IsNullOrWhiteSpace(book.Title))
             {
-                throw new InvalidOperationException("Fill in book title");
+                throw new InvalidOperationException("Please fill in book title");
             }
 
             if (book.AuthorID == null)
@@ -34,7 +36,8 @@ namespace BookshelfBL.Models
 
             if (_bookRepository.BookExists(book.Title.Trim(), book.AuthorID))
             {
-                throw new ArgumentException("This book already exists"); 
+                throw new InvalidOperationException("This book already exists"); 
+                
             }
 
             BookDTO dto = new BookDTO()

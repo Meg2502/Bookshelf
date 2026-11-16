@@ -2,7 +2,6 @@
 using Bookshelf.ViewModels;
 using BookshelfBL;
 using BookshelfBL.Models;
-using BookshelfDAL.Author;
 using Google.Protobuf;
 using Microsoft.AspNetCore.Mvc;
 using System.Xml.Linq;
@@ -12,8 +11,14 @@ namespace Bookshelf.Controllers
 {
     public class AdminController : Controller
     {
+
         private readonly AuthorService _authorService = new AuthorService();
-        private readonly BookService _bookService = new BookService();
+        private readonly BookService _bookService;
+
+        public AdminController(BookService bookService)
+        {
+            _bookService = bookService;
+        }
 
         public IActionResult Index()
         {
@@ -40,7 +45,7 @@ namespace Bookshelf.Controllers
             return View(model);
         }
 
-       
+
 
         [HttpPost]
         public IActionResult AddBook(CreateBookViewModel Book)
@@ -61,16 +66,24 @@ namespace Bookshelf.Controllers
                 Book.SelectedGenres.Add(Genre.Unknown);
             }
 
-            
-
-            
-            BookModel book = new BookModel(Book.Title,  Book.AuthorID, Book.SelectedGenres,
+            BookModel book = new BookModel(Book.Title, Book.AuthorID, Book.SelectedGenres,
                 Book.Description, Book.ReleaseDate, Book.Publisher);
 
-            
-            _bookService.CreateBook(book);
-            
-            return RedirectToAction(nameof(AllBooks)); 
+            try 
+            { 
+                _bookService.CreateBook(book);
+                return RedirectToAction(nameof(AllBooks));
+            }
+            catch (InvalidOperationException exception)
+            {
+                ModelState.AddModelError(string.Empty, exception.Message);
+
+                Book.ExistingAuthors = _authorService.GetAuthorsDD();
+
+                return View(Book);
+            }
+
+             
         }
     }
 }
