@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using BookshelfDAL;
 using BookshelfDAL.Book;
+using Mysqlx.Crud;
 
 namespace BookshelfBL.Models
 {
@@ -26,15 +27,14 @@ namespace BookshelfBL.Models
                 throw new InvalidOperationException("Please select an author");
             }
 
-
-            if (book.ReleaseDate == null)
+            if (book.BookGenre.Count == 0)
             {
-                throw new ArgumentException("Please select a Releasedate");
+                book.BookGenre.Add(Genre.Unknown);
             }
 
             if (_bookRepository.BookExists(book.Title.Trim(), book.AuthorID))
             {
-                throw new InvalidOperationException("Book already exists");
+                throw new ArgumentException("This book already exists"); 
             }
 
             BookDTO dto = new BookDTO()
@@ -45,18 +45,17 @@ namespace BookshelfBL.Models
                 ReleaseDate = book.ReleaseDate,
                 Publisher = book.Publisher,
                 Rating = 0
-
-                //todo convert list genres
-                //foreach (Genre in book.SelectedGenres )
-                //{
-                //BookGenre.Add();
-                //}
             };
+
+            foreach (Genre genre in book.BookGenre)
+            {
+                dto.BookGenre.Add((int)genre);
+            }
 
             _bookRepository.Add(dto);
 
-            return dto;
-        }
+                return dto;
+            }
 
         public void UpdateBook(BookModel book)
         {

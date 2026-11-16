@@ -6,7 +6,7 @@ namespace BookshelfBL
 {
     public enum Genre
     {
-        Unknown,
+        Unknown = 1,
         Fiction,
         NonFiction,
         Romance,

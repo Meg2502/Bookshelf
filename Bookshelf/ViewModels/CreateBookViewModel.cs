@@ -18,13 +18,12 @@ namespace Bookshelf.ViewModels
         public int AuthorID { get; set; }
         public List<AuthorModel> ExistingAuthors { get; set; } = new();
 
-        public List<Genre> SelectedGenres { get; set; } = new();
-        public List<Genre> Genres { get; set; }
+        public List<BookshelfBL.Genre>? SelectedGenres { get; set; } = new();
 
-        public string Description { get;  set; }
+        public string? Description { get;  set; }
 
-        public DateOnly ReleaseDate { get; set; }
-        public string Publisher { get; set; }
+        public DateOnly? ReleaseDate { get; set; }
+        public string? Publisher { get; set; }
 
         //TODO image
 

@@ -33,7 +33,7 @@ namespace BookshelfBL.Helpers.Mappers
                         bookdto.Title,
                         bookdto.AuthorId,
                         bookdto.BookGenre
-                            .Select(genre => Enum.Parse<Genre>(genre, ignoreCase: true))
+                            .Select(genreId => (Genre)genreId)
                             .ToList(),
                         bookdto.Description,
                         bookdto.ReleaseDate,

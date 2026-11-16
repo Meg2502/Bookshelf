@@ -35,6 +35,7 @@ namespace Bookshelf.Controllers
                 ExistingAuthors = authorsdd
             };
             
+     
 
             return View(model);
         }
@@ -50,16 +51,19 @@ namespace Bookshelf.Controllers
                 return View(Book);
             }
 
-            if (Book.SelectedGenres == default)
-            {
-                Book.Genres.Add(Genre.Unknown);
-            }
-
             if (Book.Publisher == null)
             {
                 Book.Publisher = "Unknown";
             }
 
+            if (Book.SelectedGenres.Count == 0)
+            {
+                Book.SelectedGenres.Add(Genre.Unknown);
+            }
+
+            
+
+            
             BookModel book = new BookModel(Book.Title,  Book.AuthorID, Book.SelectedGenres,
                 Book.Description, Book.ReleaseDate, Book.Publisher);
 

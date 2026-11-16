@@ -4,49 +4,63 @@
 }
 
 <form method="post">
+    <div asp-validation-summary="All"></div>
+
     <div>
-        <label> Title: </label>
+        <label asp-for="Title"> Title: </label>
         <input asp-for="Title" />
         <span asp-validation-for="Title"></span>
     </div>
 
    <div>
-        <label>Author:</label>
+        <label asp-for="AuthorID">Author:</label>
         <select asp-for="AuthorID"
                 class="form-control">
                 <option value="">Select Author</option>
                 @foreach (var author in Model.ExistingAuthors)
                     {
-                        <option option value="@author.Id">@author.Name, @author.Birthdate  </option>
+                        <option value="@author.Id">@author.Name, @author.Birthdate  </option>
                     }
-                    
+        <span asp-validation-for="AuthorID"></span>
         </select>
         
      </div>
 
+     <div>
+         <label asp-for="SelectedGenres"> Genre:</label>
+         <select asp-for="SelectedGenres"
+         multiple class="form-select">
+             <option value="">Select Genre</option>
+            @foreach (BookshelfBL.Genre genre in Enum.GetValues(typeof(BookshelfBL.Genre)))
+                    {
+                <option value="@((int)genre)">@genre</option>
+                    }
+                </select>
+     </div>
+@* 
     <div>
-        <label> Genre:</label>
+        <label asp-for="SelectedGenres"> Genre:</label>
         <select asp-for="SelectedGenres"
                 asp-items="Html.GetEnumSelectList<BookshelfBL.Genre>()"
                     multiple
                     class="form-select">
         </select> 
-    </div>
+    *@ 
     
     <div>
-        <label >Description: </label>
+        <label asp-for="Description" >Description: </label>
         <input asp-for="Description" />
         
     </div>
 
     <div>
-        <label >Release date: </label>
+        <label asp-for="ReleaseDate" >Release date: </label>
         <input asp-for="ReleaseDate" />
         <span asp-validation-for="ReleaseDate"></span>
     </div>
 
     <div>
-        <label>Publisher: </label>
+        <label asp-for="Publisher">Publisher: </label>
         <input asp-for="Publisher"/>
     </div>
 
