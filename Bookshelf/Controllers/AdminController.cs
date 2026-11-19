@@ -11,13 +11,15 @@ namespace Bookshelf.Controllers
 {
     public class AdminController : Controller
     {
-
         private readonly AuthorService _authorService = new AuthorService();
+        //private readonly AuthorService _authorService; 
         private readonly BookService _bookService;
 
         public AdminController(BookService bookService)
+            //, AuthorService authorservice)
         {
             _bookService = bookService;
+            //_authorService = authorservice;
         }
 
         public IActionResult Index()

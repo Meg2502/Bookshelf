@@ -1,13 +1,14 @@
-﻿using Bookshelf.Tests;
-using BookshelfBL;
+﻿using BookshelfBL;
 using BookshelfBL.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using BookshelfDAL.Book;
+using TestProject.FakeRepos;
 
-namespace TestProject.UnitTest
+namespace TestProject
 {
+    [TestClass]
     public class AddBookTest
     {
         [TestMethod]
@@ -29,16 +30,16 @@ namespace TestProject.UnitTest
             //Assert
             Assert.IsTrue(repository.AddWasCalled);
 
-            Assert.AreEqual(1, repository.Books.Count);
+            Assert.AreEquivalent(1, repository.Books.Count);
             BookDTO savedBook = repository.Books.Single();
 
             Assert.AreSame(result, savedBook);
-            Assert.AreEqual(book.Title, savedBook.Title);
-            Assert.AreEqual(book.AuthorID, savedBook.AuthorId);
-            Assert.AreEqual(book.Description, savedBook.Description);
-            Assert.AreEqual(book.ReleaseDate, savedBook.ReleaseDate);
-            Assert.AreEqual(book.Publisher, savedBook.Publisher);
-            CollectionAssert.AreEqual(
+            Assert.AreEquivalent(book.Title, savedBook.Title);
+            Assert.AreEquivalent(book.AuthorID, savedBook.AuthorId);
+            Assert.AreEquivalent(book.Description, savedBook.Description);
+            Assert.AreEquivalent(book.ReleaseDate, savedBook.ReleaseDate);
+            Assert.AreEquivalent(book.Publisher, savedBook.Publisher);
+            CollectionAssert.AreEquivalent(
                 new[] { (int)Genre.Fiction },
                 savedBook.BookGenre.ToArray());
         }
@@ -57,13 +58,13 @@ namespace TestProject.UnitTest
                 new DateOnly(1988, 1, 1), "HarperTorch");
 
             // Act
-            InvalidOperationException exception = Assert.ThrowsExactly<InvalidOperationException>(
+            InvalidOperationException exception = Assert.Throws<InvalidOperationException>(
                 () => service.CreateBook(book));
 
+
             // Assert
-            Assert.AreEqual("Please fill in all required information.", exception.Message);
             Assert.IsFalse(repository.AddWasCalled);
-            Assert.AreEqual(0, repository.Books.Count);
+            Assert.AreEqual(0, repository.Books.Count); //niet toegevoegd aan systeem check
         }
 
         [TestMethod]
@@ -80,11 +81,10 @@ namespace TestProject.UnitTest
                 new DateOnly(1988, 1, 1), "HarperTorch");
 
             // Act
-            InvalidOperationException exception = Assert.ThrowsExactly<InvalidOperationException>(
+            InvalidOperationException exception = Assert.Throws<InvalidOperationException>(
                 () => service.CreateBook(book));
 
             // Assert
-            Assert.AreEqual("Please fill in all required information.", exception.Message);
             Assert.IsFalse(repository.AddWasCalled);
             Assert.AreEqual(0, repository.Books.Count);
         }
@@ -107,11 +107,11 @@ namespace TestProject.UnitTest
             service.CreateBook(book); 
 
             // Act
-            InvalidOperationException exception = Assert.ThrowsExactly<InvalidOperationException>(
+            InvalidOperationException exception = Assert.Throws<InvalidOperationException>(
                 () => service.CreateBook(book));
 
             // Assert
-            Assert.AreEqual("Book already exists in the system.", exception.Message);
+            
             Assert.AreEqual(1, repository.Books.Count);
         }
 

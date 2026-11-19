@@ -1,4 +1,5 @@
-﻿using BookshelfDAL.Book;
+﻿using BookshelfBL.Models;
+using BookshelfDAL.Book;
 
 namespace Bookshelf.ViewModels
 {
@@ -10,6 +11,6 @@ namespace Bookshelf.ViewModels
         public DateOnly Birthdate { get; set; }
         public string Gender { get; set; }
         public string Biography { get; set; }
-       //lijst boeken
+       public List<BookModel> AuthorBooks { get; set; }
     }
 }

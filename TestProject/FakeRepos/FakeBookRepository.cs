@@ -3,7 +3,7 @@ using BookshelfDAL.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Bookshelf.Tests
+namespace TestProject.FakeRepos
 {
     public class FakeBookRepository : IBookRepo
     {
@@ -23,6 +23,11 @@ namespace Bookshelf.Tests
                 book.Title == title &&
                 book.AuthorId == authorId);
         }
+
+        //public List<BookDTO> GetBooksForList()
+        //{
+            
+        //}
     }
 }
 
