@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BookshelfBL.Helpers.Mappers;
 using BookshelfDAL;
+using BookshelfDAL.Author;
 using BookshelfDAL.Book;
 using BookshelfDAL.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 
 namespace BookshelfBL.Models
@@ -24,7 +26,7 @@ namespace BookshelfBL.Models
                 throw new InvalidOperationException("Please fill in book title");
             }
 
-            if (book.AuthorID == null)
+            if (book.AuthorID == 0)
             {
                 throw new InvalidOperationException("Please select an author");
             }
@@ -63,6 +65,12 @@ namespace BookshelfBL.Models
         public void UpdateBook(BookModel book)
         {
             //todo not this iteration
+        }
+
+        public List<BookModel> GetAllBooksForSearch()
+        {
+            List<BookDTO> dtos = new BookRepo().GetBooksForList();
+            return BookMapper.MapToBusinessList(dtos);
         }
     }
 }

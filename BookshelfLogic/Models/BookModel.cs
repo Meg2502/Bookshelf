@@ -8,8 +8,10 @@ namespace BookshelfBL.Models
 {
     public class BookModel
     {
+        public int Id { get; private set; }
         public string Title { get; private set; }
-        public int AuthorID  { get; private set; }      
+        public int AuthorID  { get; private set; }    
+        public AuthorModel Author { get; private set; }
         public List<Genre> BookGenre { get; private set; }
         public string? Description { get; private set; }
         public DateOnly? ReleaseDate { get; private set; }
@@ -27,6 +29,13 @@ namespace BookshelfBL.Models
 
             
             Rating = 0; 
+        }
+
+        public BookModel(int id, string title, AuthorModel author)
+        {
+            Id = id; 
+            Title = title; 
+            Author = author;
         }
 
         public BookModel(string title,  int authorid, List<Genre> bookgenre,

@@ -18,10 +18,13 @@ namespace BookshelfBL.Models
 
         //TODO image
 
-        public AuthorModel(string name, int id, DateOnly birthdate)
+        public AuthorModel(string name, int id)
         {
             Name = name;
             Id = id;
+        }
+        public AuthorModel(string name, int id, DateOnly birthdate) : this(name, id)
+        {
             Birthdate = birthdate;
             Books = new List<BookModel>();
         }

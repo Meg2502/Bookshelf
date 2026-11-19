@@ -9,5 +9,6 @@ namespace BookshelfDAL.Interfaces
     {
         void Add(BookDTO dto);
         bool BookExists(string title, int authorId);
+        //List<BookDTO> GetBooksForList();
     }
 }

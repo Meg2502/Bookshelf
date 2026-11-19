@@ -2,12 +2,31 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Reflection.PortableExecutable;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace BookshelfDAL.Author
 {
     public class AuthorRepo
     {
+        public void Add(AuthorDTO dto)
+        {
+            using (SqlConnection connection = new SqlConnection(DBConnection.DBConnectionString))
+            using (SqlCommand command = new SqlCommand(
+                @"INSERT INTO author (name, birthdate, gender, biography)
+             VALUES (@name, @birthdate, @gender, @biography)", connection))
+            {
+                command.Parameters.AddWithValue("@name", dto.Name);
+                command.Parameters.Add("@birthdate", System.Data.SqlDbType.Date).Value =
+                    dto.Birthdate.ToDateTime(TimeOnly.MinValue);
+                command.Parameters.AddWithValue("@gender", (object?)dto.Gender ?? DBNull.Value);
+                command.Parameters.AddWithValue("@biography", (object?)dto.Biography ?? DBNull.Value);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
         public List<AuthorDTO> GetAllAuthors()
         {
             using (SqlConnection connection = new SqlConnection(DBConnection.DBConnectionString))
@@ -47,8 +66,8 @@ namespace BookshelfDAL.Author
             }
         }
 
-            public List<AuthorDTO> GetAuthorsDD()
-            {   
+        public List<AuthorDTO> GetAuthorsDD()
+        {   
             using (SqlConnection connection = new SqlConnection(DBConnection.DBConnectionString))
             {
                 connection.Open();
@@ -80,6 +99,37 @@ namespace BookshelfDAL.Author
                 connection.Close();
 
                 return authorsdd;
+            }
+        }
+
+        public AuthorDTO? GetOneAuthorFromDB(int authorId)
+        {
+            using (SqlConnection connection = new SqlConnection(DBConnection.DBConnectionString))
+            using (SqlCommand command = new SqlCommand(
+                @"SELECT authorid, name, birthdate, gender, biography
+                FROM author
+                WHERE authorid = @AuthorId", connection))
+            {
+                command.Parameters.Add("@AuthorId", System.Data.SqlDbType.Int).Value = authorId;
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (!reader.Read())
+                    {
+                        return null;
+                    }
+
+                    return new AuthorDTO
+                    {
+                        Id = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Birthdate = DateOnly.FromDateTime(reader.GetDateTime(2)),
+                        Gender = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
+                        Biography = reader.IsDBNull(4) ? string.Empty : reader.GetString(4)
+                    };
+                }
             }
         }
     }
